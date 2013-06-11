@@ -1,0 +1,183 @@
+// Import variables and mixins
+@import "pweb.variables.less";
+
+// Base 5 column grid
+// -------------------------
+.grid(@cols) {
+  width: (@cols * @grid-base) + ((@cols - 1) * @grid-space);
+  margin-right: @grid-space;
+  float: left;
+}
+
+.grid-full {
+  //margin-right: @grid-space;
+}
+
+.grid-1 {
+  .grid(1);
+}
+
+.grid-2 {
+  .grid(2);
+}
+
+.grid-3 {
+  .grid(3);
+}
+
+.grid-4 {
+  .grid(4);
+}
+
+.grid .grid:last-child {
+  margin-right: 0;
+}
+
+.grid .grid.last {
+  margin-right: 0;
+}
+
+.grid-15 {
+  margin-right: @grid-space;
+  float: left;
+}
+
+.push-1 {
+  margin-left: @grid-base + @grid-space;
+}
+
+
+// Vertical grid for tiles
+// -------------------------
+.vgrid-1,
+.hgrid-1 {
+  height: @hgrid-base;
+  margin-bottom: @hgrid-space;
+}
+
+.vgrid-2,
+.hgrid-2 {
+  height: (2 * @hgrid-base) + @hgrid-space;
+  margin-bottom: @hgrid-space;
+}
+
+
+// Media queries
+// ------------------------
+
+.wrapper {
+  .transition(width 0.7s ease-in-out 0.1s);
+  padding-bottom: 6px;
+  clear: both;
+  position: relative;
+}
+
+// 4 column layout.
+// Desktops and laptops
+@media only screen
+and (min-width : 62em) {
+  .wrapper {
+    width: 4 * (@grid-base + @grid-space) + 0.25;
+    margin: 0 auto;
+  }
+
+  .masonry-front {
+    .grid(2);
+  }
+
+  .cell-2-1 {
+    .grid(2);
+  }
+
+  // 2/3 column grid
+  .grid-15 {
+    width: @grid-base * 1.5 + @grid-space/2;
+    padding-right: 56px;
+  }
+}
+
+// 3 column layout.
+// Horisontal tablets and smaller laptops.
+@media only screen
+and (min-width : 46em)
+and (max-width : 62em) {
+  .wrapper {
+    width: 3 * (@grid-base + @grid-space) + 0.1875;
+    margin: 0 auto;
+  }
+  .cell-2-1 {
+    .grid(1);
+
+    .ui-tabs {
+      .vgrid-2;
+    }
+  }
+
+  // 2/3 column grid
+  .grid-15 {
+    .grid(1);
+  }
+}
+
+// 2 column layout.
+// Vertical tablets
+@media only screen
+and (min-width : 30.75em)
+and (max-width : 46em) {
+  .wrapper {
+    width: 2 * (@grid-base + @grid-space) + 0.125;
+    margin: 0 auto;
+  }
+
+  .masonry-front,
+  .grid-3,
+  .grid-4 {
+    .grid(2);
+  }
+
+  // 2/3 column grid
+  .grid-15 {
+    .grid(1);
+  }
+}
+
+// 1 column layout.
+// Mobile.
+@media only screen
+and (max-width : 30.75em) {
+  .wrapper {
+    width: @grid-base + @grid-space + 0.0625;
+    margin: 0 auto;
+  }
+
+  .grid-2, .grid-3, .grid-4 .grid-15, .cell-2-1 {
+    .grid(1);
+  }
+
+  .tile.vgrid-2 {
+    .vgrid-1;
+  }
+}
+
+// Support for browsers without mediaqueries
+.no-mq,
+.lt-ie8 {
+  .wrapper {
+    width: 4 * (@grid-base + @grid-space) + 0.25;
+    margin: 0 auto;
+  }
+
+  .masonry-front {
+    .grid(2);
+  }
+
+  .cell-2-1 {
+    .grid(2);
+  }
+
+  // 2/3 column grid
+  .grid-15 {
+    width: @grid-base * 1.5 + @grid-space/2;
+    padding-right: 56px;
+  }
+}

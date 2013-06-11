@@ -1,0 +1,922 @@
+// Import variables and mixins
+@import "pweb.variables.less";
+
+body {
+  background: @col-background;
+  color: @col-base;
+  position: relative;
+}
+
+.page-top {
+  padding-top: 25px;
+}
+
+.m-main {
+  padding-top: 25px;
+  padding-bottom: 19px;
+}
+
+.m-secondary {
+  background-color: @col-lightgrey;
+  border: 1px solid @col-grey;
+  border-width: 0 0 1px;
+  padding: 30px 0;
+}
+
+.header {
+  padding-bottom: 6px;
+  height: 53px;
+  border-bottom: 1px solid @col-grey;
+  position: relative;
+}
+
+.menu-region {
+  padding-top: 19px;
+}
+
+.footer-region {
+  margin-top: 40px;
+  padding-bottom: 40px;
+}
+
+.block-block-1 {
+  width: 48%;
+}
+
+#block-menu-menu-footer-menu {
+  float: right;
+}
+
+
+.search-region {
+  float: right;
+
+  .form-type-textfield {
+    float: right;
+  }
+}
+
+.siteinfo {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.panel-separator {
+  display: none;
+}
+
+div[role=main] {
+  clear: both;
+  position: relative;
+}
+
+// Elements
+// ------------------------
+.title-image {
+  margin-bottom: @grid-space;
+  position: relative;
+
+  &:after {
+    content: '.';
+    overflow: hidden;
+    height: 33px;
+    width: 34px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: transparent url(../images/sprite-icons.png) -545px -40px no-repeat;
+    text-indent: -999em;
+  }
+}
+
+.content-column {
+  padding-right: 23px;
+}
+
+.search-column {
+  padding-left: 27px;
+}
+
+// Tiles
+.tile {
+  background: @col-grey;
+  position: relative;
+
+  .label-theme {
+    position: absolute;
+    left: 15px;
+    top: 14px;
+    margin-right: 15px;
+  }
+}
+
+.label-theme {
+
+  display: inline-block;
+  padding: 2px 3px;
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: @col-background;
+    font-weight: normal;
+  }
+}
+
+.tile-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.tile-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 15px 14px;
+
+  .title-tile-large {
+    margin-bottom: @baseline;
+  }
+}
+
+// Glossary
+.glossary-term {
+  position: relative;
+  border-bottom: 1px dotted @col-greyaccent;
+
+  &:hover {
+    .glossary-term-description {
+      display: block;
+    }
+  }
+}
+
+.glossary-term-description {
+  display: none;
+  position: absolute;
+  bottom: @baseline + 20px;
+  left: -@grid-space + 0.0625;
+  width: 250px;
+  padding: @grid-space;
+  background: #fff;
+  border: 1px solid @col-midgrey;
+  -webkit-box-shadow: 4px 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 4px 8px 16px rgba(0,0,0,0.2);
+
+  &:after {
+    display: block;
+    width: 22px;
+    height: 21px;
+    content: ".";
+    background: transparent url('../images/sprite-icons.png') no-repeat -405px -198px;
+    bottom: -21px;
+    left: 20px;
+    position: absolute;
+    color: #fff;
+  }
+}
+
+
+// Blocks
+.m-block,
+.block-list {
+  margin-bottom: 24px;
+}
+
+.block-small(@param: default) {
+  padding: 19px 13px;
+}
+
+.block-secondary {
+  margin-bottom: @grid-space;
+  background-color: @col-grey;
+  border-top: 1px solid @col-midgrey;
+  .block-small;
+}
+
+.block-content {
+  margin: 18px 0;
+  padding: @grid-space 0;
+  border: 1px dotted @col-darkgrey;
+  border-width: 1px 0;
+  color: @col-darkgrey;
+
+  .views-field-name {
+    float: left;
+    width: 60%;
+
+    a {
+      margin-right: 0.4em;
+    }
+  }
+  .views-field-sharethis {
+    float: right;
+  }
+}
+
+.block-list:first-child {
+  padding-top: 8px;
+}
+
+.content-footer {
+  background-color: @col-lightgrey;
+  padding: 0 0 @grid-space;
+  overflow: hidden;
+  margin-bottom: @baseline;
+
+  .views-field {
+    clear: left;
+  }
+
+  .views-label {
+    width: 76px;
+    float: left;
+  }
+  .content-footer {
+    margin-bottom: 0;
+  }
+}
+
+.content-footer-title {
+  .content-footer;
+  font-weight: bold;
+  margin-bottom: 0;
+  border-top: 1px dotted @col-darkgrey;
+  padding-top: @baseline;
+}
+
+.image-block {
+  float: left;
+  margin-right: @grid-space;
+}
+
+.block-navigation {
+  .block-small;
+  background: @col-nav;
+  margin-bottom: 38px;
+}
+
+.block-filter{
+  .block-small;
+  margin-right: @grid-space;
+  background: @col-grey;
+  margin-top: -24px;
+  margin-bottom: 26px;
+
+  li {
+    float: left;
+  }
+}
+
+
+.block-facet {
+  .form-type-select {
+    margin-bottom: 4px;
+  }
+  .selected-checkboxes {
+    margin-bottom: 12px;
+    .form-item {
+      display: inline-block;
+    }
+  }
+}
+
+
+// Share this
+.chicklets {
+  width: 17px !important;
+  height: 17px !important;
+  padding: 0 !important;
+
+  &.twitter   { background: url('../images/sprite-icons.png') no-repeat -493px -111px !important; }
+  &.facebook  { }
+  &.sharethis { background: url('../images/sprite-icons.png') no-repeat -519px -83px !important; }
+}
+
+.sharethis-wrapper > * {
+  float: left;
+}
+
+html .stButton { // html added only for specificity to override module styling.
+  margin: 0 2px;
+  width: auto !important;
+}
+
+.print_html a {
+  text-indent: -999em;
+  overflow: hidden;
+  float: right;
+  height: 17px;
+  width: 17px;
+  background: url('../images/sprite-icons.png') no-repeat -349px -263px !important;
+  margin-top: 3px;
+  margin-right: 2px;
+}
+
+// Messages
+// ----------------------
+.messages {
+  overflow: hidden;
+  padding: @grid-space @grid-space @grid-space 72px;
+  min-height: 72px;
+  background-color: @col-cyan;
+
+  &.error {
+    background-image: url('../images/sprite-icons.png');
+    background-repeat: no-repeat;
+    background-position: -420px -140px;
+  }
+
+  &.status {
+    color: #234600;
+    background-color: #F8FFF0;
+  }
+}
+
+.error {
+  background-color: @col-palepink;
+}
+
+.drupal-messages,
+.clientside-error {
+  margin: 0 0 @grid-space;
+}
+
+
+// Lists
+// ----------------------
+.list-block {
+  margin-bottom: 12px;
+
+  li {
+    border-bottom: 1px dotted @col-midgrey;
+
+    &:first-child {
+      border-top: 1px dotted @col-midgrey;
+    }
+  }
+  li.list-item {
+    margin-left: 0;
+    padding: @grid-space 0;
+  }
+}
+
+.list-content {
+  .list-item {
+    border-bottom: 1px dotted @col-midgrey;
+    margin-top: @grid-space;
+    margin-bottom: @grid-space;
+    margin-left: 0;
+  }
+}
+
+.list-pane {
+  padding: @baseline 0 0 @grid-space;
+}
+
+.list-item {
+  padding: @grid-space 0 @grid-space @grid-space;
+  margin-left: -@grid-space;
+  display: block;
+}
+
+.media-item {
+  padding-left: 169px + @grid-space + @baseline;
+  overflow: hidden;
+
+  .list-media {
+    float: left;
+    margin-left: -(169px + @baseline);
+  }
+}
+
+.media-item-right {
+  overflow: hidden;
+  .list-media {
+    float: right;
+    padding-right: 10px;
+    padding-top: 2px;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .list-content {
+    margin-right: 200px;
+  }
+}
+
+.lt-ie9 .media-item-right .list-media {
+  width: 179px;
+}
+
+.list-tag {
+  li {
+    margin-right: @grid-space;
+    border-right: 1px solid @col-midgrey;
+    float: left;
+    padding: 0 @grid-space 0 0;
+    line-height: 0.9em;
+    margin-bottom: 4px;
+
+    &.last {
+      border: none;
+    }
+  }
+  a:link,
+  a:visited {
+    color: @col-darkgrey;
+  }
+}
+
+.st-vacc .list-tag li {
+  border: none;
+  float:none;
+}
+
+.list-logos {
+  margin-top: 25px;
+}
+
+.page-top .list-logos {
+  display: block;
+  background: transparent url(../images/back-logo-sidebar.jpg) left top no-repeat;
+  position: absolute;
+  padding: 160px 0 0 15px;
+  top: 0;
+  right: -219px;
+  width: 195px;
+  height: 594px;
+  margin-top: 0;
+
+  .logo-item {
+    float: none;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+.logo-item {
+  float: left;
+}
+
+
+// Styles
+// ----------------------
+.st-magenta,
+.st-petroleum,
+.st-yellow,
+.tile.count-2,
+.tile.count-3,
+.tile.count-4 {
+  color: @col-background;
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: @col-background;
+  }
+
+  .label-theme {
+    background: @col-background;
+    color: @col-darkgrey;
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      color: @col-darkgrey;
+    }
+  }
+}
+
+.st-magenta,
+.tile.count-2 {
+  background-color: @col-pink;
+}
+
+.st-petroleum,
+.tile.count-3 {
+  background-color: @col-diesel;
+}
+
+.st-yellow,
+.tile.count-4 {
+  background-color: @col-yellow;
+}
+
+.clear {
+  clear: both;
+}
+
+// jQuery UI tabs replacement
+// --------------------------
+
+.ui-tabs {
+  // position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed")
+  position: relative;
+  zoom: 1;
+  min-height: @hgrid-base;
+  margin-bottom: @hgrid-space;
+  background: transparent url(../images/back-gradient-horizontal.png) right top repeat-y;
+
+  &.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
+    cursor: pointer;
+  }
+}
+.ui-tabs-nav {
+  background: @col-greyaccent;
+  border: 1px solid @col-background;
+  margin-bottom: 10px;
+
+  & > li {
+    float: left;
+    position: relative;
+    white-space: nowrap;
+    padding-bottom: 10px;
+    margin-bottom: -11px;
+
+    & > a {
+      float: left;
+      padding: 10px 19px;
+      text-decoration: none;
+      cursor: pointer;
+      background: @col-greyaccent;
+      border: 1px solid @col-background;
+      border-width: 0 0 1px 1px;
+
+      &:hover {
+        background: @col-lightdiesel;
+      }
+    }
+
+    &:first-child {
+      a {
+        border: none;
+      }
+    }
+    &.ui-tabs-selected {
+      background: transparent url(../images/back-tab-selected.png) center bottom no-repeat;
+      padding-bottom: 10px;
+
+      & > a {
+        cursor: text;
+        border-bottom: none;
+        background: @col-diesel;
+      }
+    }
+    &.ui-state-disabled a,
+    &.ui-state-processing a {
+      cursor: text;
+    }
+
+  }
+
+  .vacc-control {
+    float: none;
+    display: block;
+  }
+}
+
+.st-vacc {
+  background: transparent !important;
+  border: none !important;
+
+  & > li {
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+    &.ui-tabs-selected {
+      background: none;
+    }
+  }
+
+  & > li > a {
+    border: none;
+  }
+
+  li {
+    float: none;
+  }
+}
+
+.ui-tabs-panel {
+  display: block;
+  padding: 21px 19px 0;
+
+  .more-link {
+    position: absolute;
+    bottom: 21px;
+    right: 24px;
+    #font > .shorthand(12px, normal, 1.3em);
+  }
+  // Styling for logged in users.
+  .contextual-links-region {
+    min-height: @hgrid-base - 65px;
+
+    .more-link {
+      right: 0;
+    }
+  }
+}
+.ui-tabs-hide {
+  display: none !important;
+}
+
+.content-column .view-tema-articles.grid-1 {
+  width: 48%;
+  margin-right: 1.8%;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+// Conditional styling
+// ----------------------------
+
+// 4 column layout.
+// Desktops and laptops
+@media only screen
+and (min-width : 993px) {
+  .search-region {
+    > * {
+      float: left;
+    }
+    form {
+      margin-left: 21px;
+    }
+  }
+}
+
+// 3 column layout.
+// Horisontal tablets and smaller laptops.
+@media only screen
+and (min-width : 736px)
+and (max-width : 993px) {
+  .modal-trigger-link.title-subscribe {
+    padding-left: 27px;
+  }
+}
+
+// 3 column layout and below.
+@media only screen
+and (max-width : 993px) {
+  .pane-outer-right {
+    width: auto;
+    margin: 0;
+    float: none;
+    clear: both;
+
+    .pane-title {
+      display: none;
+    }
+    .tile {
+      width: 235px;
+      margin-right: 8px;
+      float: left;
+    }
+  }
+  .content-column {
+    padding-bottom: 28px;
+  }
+  .modal-trigger-link.title-subscribe {
+    text-align: left;
+    margin-top: @baseline;
+  }
+}
+
+// 2 column layout.
+// Vertical tablets
+@media only screen
+and (min-width : 492px)
+and (max-width : 736px) {
+  .block-block-1 {
+    width: auto;
+  }
+
+  #block-menu-menu-footer-menu {
+    float: none;
+    margin-bottom: @baseline
+  }
+
+}
+
+// 2 column and less.
+@media only screen
+and (max-width : 736px) {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .content-column {
+    padding-right: 0;
+  }
+  .pane-inner-right {
+    width: auto;
+    float: none;
+    clear: left;
+    padding-bottom: 28px;
+  }
+  .search-column {
+    padding-left: 0;
+  }
+  .facet-column {
+    display: none;
+  }
+}
+
+
+
+// 1 column layout.
+// Mobile.
+@media only screen
+and (max-width : 492px) {
+  .block-block-1 {
+    width: auto;
+  }
+
+  #block-menu-menu-footer-menu {
+    float: none;
+    margin-bottom: @baseline
+  }
+
+  .block-system-user-menu {
+    display: none;
+  }
+
+  .m-main {
+    padding-top: 4px;
+  }
+
+  .m-block {
+    padding-bottom: 18px;
+    border-bottom: 1px solid @col-midgrey;
+  }
+
+  .search-region,
+  .search-region .form-type-textfield {
+    float: none;
+    max-width: 235px;
+  }
+
+  .siteinfo,
+  .header {
+    position: static;
+    border: none;
+    height: auto;
+  }
+
+  .header {
+    padding-bottom: 11px;
+  }
+
+  .menu-region {
+    border-bottom: 1px solid @col-grey;
+    padding-top: 0;
+    .menu li {
+      float: none;
+      background: none;
+      padding-left: 8px;
+
+      &.active-trail {
+        margin-left: 0;
+      }
+    }
+    a.active-trail {
+      background: none;
+      color: #fff;
+    }
+
+  }
+  .toggle {
+    display: block !important;
+  }
+  .list-key {
+    float: none;
+    width: auto;
+  }
+  .list-definition {
+    margin-left: 0;
+  }
+
+  .media-item,
+  .media-item-right {
+    padding-left: @grid-space;
+    padding-right: @grid-space;
+
+    .list-media {
+      float: none;
+      margin-left: 0;
+    }
+
+    .list-content {
+      margin-right: 0;
+    }
+  }
+  .block-filter {
+    margin-top: 0;
+    .grid-1 {
+      float: none;
+    }
+    .push-1 {
+      margin-left: 0;
+    }
+  }
+  #freetext-search-block-form {
+    position: relative;
+
+    .form-text {
+      width: 100%;
+    }
+    .end-icon {
+      position: absolute;
+      left: 197px;
+      right: 5px;
+    }
+  }
+  .logo-item {
+    width: 49%;
+  }
+  .content-column .view-tema-articles.grid-1 {
+    width: 14.6875em;
+    margin-right: 0.5em;
+  }
+}
+
+
+// DEV!
+.js .block-modal {
+  display: none;
+}
+.block-modal {
+  min-width: 350px;
+  max-width: 100%;
+  background: @col-grey;
+  border: 8px solid @col-background;
+  padding: 30px 20px 36px;
+
+  input[type=submit],
+  .button {
+    background-color: @col-lightdiesel;
+    color: @col-background;
+  }
+
+  .rss-link {
+    float: left;
+    clear: both;
+    padding-left: 20px;
+    background: url('../images/sprite-icons.png') no-repeat -325px -288px !important;
+  }
+}
+
+.icon-close {
+  display: block;
+  width: 25px;
+  height: 25px;
+  background: @col-grey url(../images/sprite-icons.png) no-repeat -290px -314px;
+  cursor: pointer;
+}
+
+.simplemodal-container .icon-close {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  z-index: 1003;
+}
+
+.panel-separator {
+  display: none;
+}
+
+// Editor styles
+.align-left {
+  float: left;
+  margin-right: 1em;
+}
+
+.align-right {
+  float: right;
+  margin-left: 1em;
+}
+
+// 4 column styles for IE who doesn't support media queries.
+.no-mq,
+.lt-ie8 {
+  .search-region {
+    > * {
+      float: left;
+    }
+    form {
+      margin-left: 21px;
+    }
+  }
+}

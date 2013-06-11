@@ -1,0 +1,737 @@
+// Import variables and mixins
+@import "pweb.variables.less";
+
+// Base typographies
+// ---------------------
+body {
+  #font > .shorthand();
+  #font > #family .sans-serif();
+}
+
+.text-secondary {
+  #font > .shorthand(@secfont, normal, @secline);
+}
+
+.text-teaser {
+  #font > .shorthand(20px, normal, 1.2em);
+  margin-bottom: 4px;
+}
+
+.text-footer {
+  #font > .shorthand(12px, normal, 1.3em);
+  color: @col-darkgrey;
+}
+
+// Links
+// ---------------------
+a {
+  &:link,
+  &:visited {
+    color: @col-diesel;
+    text-decoration: none;
+  }
+  &:visited {
+    color: @col-darkblue;
+  }
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+.list-item {
+  &:link,
+  &:visited {
+    color: inherit;
+  }
+  &:hover,
+  &:active {
+    background: @col-grey;
+    text-decoration: none;
+  }
+}
+
+.ui-tabs-nav > li {
+  & > a:link,
+  & > a:visited {
+    color: @col-background;
+     #font > .shorthand(13px, normal, 1em);
+    text-transform: uppercase;
+  }
+}
+
+
+// Titles
+// ---------------------
+.title-page {
+  #font > .shorthand(32px, normal, 1.2em);
+  color: @col-diesel;
+  margin-bottom: 15px;
+}
+
+.title-block {
+  text-transform: uppercase;
+  color: @col-coal;
+  margin-bottom: @grid-space;
+}
+
+.title-tile {
+  #font > .shorthand(20px, normal, 1.05em);
+  margin-bottom: 4px;
+}
+
+.title-tile-large {
+  #font > .shorthand(40px, normal, 1em);
+}
+
+.title-list {
+  #font > .shorthand(18px, normal, 0.83em);
+  text-transform: uppercase;
+  color: @col-lightdiesel;
+  margin-bottom: 20px;
+}
+
+.title-search {
+  #font > .shorthand(24px, normal, 1.2em);
+  margin-bottom: 32px;
+
+}
+
+.title-menu {
+  text-transform: uppercase;
+  color: @col-darkgrey;
+  padding: 14px @grid-space @grid-space;
+  border-top: 1px solid @col-midgrey;
+}
+
+// Node content
+// ---------------------
+.list-key {
+  float: left;
+  clear: both;
+  font-weight: bold;
+  width: 116px;
+}
+
+.list-definition {
+  margin-left: 124px;
+  margin-bottom: @baseline;
+}
+
+.list-search {
+  border: 1px dotted @col-darkgrey;
+  border-width: 1px 0;
+  padding: 8px 0;
+
+  .list-item {
+    margin-bottom: 8px;
+  }
+}
+
+.list-item-footer {
+  clear: both;
+}
+
+#text-content(@param) {
+  p {
+    margin-bottom: @baseline;
+  }
+
+  .list {
+    margin: 0 0 @baseline @baseline;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  ol {
+    .list;
+    list-style: decimal outside;
+  }
+
+  ul {
+    list-style: disc outside;
+    .list;
+  }
+
+  dl {
+    .list;
+  }
+
+  li {}
+}
+
+.text-content {
+  #text-content(default);
+
+  blockquote {
+    color: @col-tertiary;
+    float: right;
+    margin: 4px 15px @baseline;
+    border: 1px solid @col-greyaccent;
+    border-width: 6px 0 1px;
+    padding: @grid-space 0;
+    width: 50%;
+
+    p {
+      margin-bottom: @grid-space;
+    }
+  }
+
+  h2 {
+    #font > .shorthand(18px, bold, 20px);
+  }
+
+  h3 {
+    #font > .shorthand(16px, bold, 20px);
+  }
+
+  table {
+    border: 1px solid @col-midgrey;
+    border-width: 1px 0;
+    margin-bottom: @baseline;
+    border-collapse: collapse;
+  }
+
+  .td {
+    padding: 10px @grid-space;
+    text-align: left;
+  }
+
+  td {
+    .td;
+    border-right: 1px dotted @col-midgrey;
+
+    &:last-child {
+      border: none;
+    }
+  }
+  th {
+    .text-content > .td;
+    font-weight: bold;
+    background: @col-cyan;
+  }
+
+  tr:nth-child(2n) {
+    background: @col-grey;
+  }
+}
+
+.block-secondary {
+  #text-content(default);
+
+  blockquote {
+    color: @col-tertiary;
+    margin: 4px 0 @baseline;
+    border: 1px solid @col-greyaccent;
+    border-width: 6px 0 1px;
+    padding: @grid-space 0;
+
+    p {
+      margin-bottom: @grid-space;
+    }
+  }
+
+  h2 {
+    .title-block;
+  }
+
+  h3 {
+    #font > .shorthand(14px, bold, 20px);
+  }
+}
+
+.caption {
+  .text-secondary;
+  font-style: italic;
+}
+
+// Menus
+// ---------------------
+
+// Horizontal menus
+.menu,
+ul.tabs {
+  overflow: hidden;
+  li {
+    float: left;
+    padding-right: @grid-space;
+    margin-right: @grid-space;
+    background: transparent url(../images/sprite-menu.png) 100% 5px no-repeat;
+
+    &:last-child,
+    &.last {
+      padding-right: 0;
+      margin-right: 0;
+      background-image: none;
+    }
+  }
+  a {
+    display: block;
+    color: @col-tertiary;
+  }
+}
+
+.menu-region {
+  .menu {
+    overflow: visible;
+    position: relative;
+    z-index: 50;
+    #font > .shorthand(17px, normal, 1.2em);
+
+    li {
+      padding: 4px @grid-space 3px 0;
+      background: transparent url(../images/sprite-menu.png) 100% -11px no-repeat;
+      &.last {
+        background-image: none;
+      }
+      &.active-trail {
+        background: @col-diesel;
+        margin-left: -(@grid-space + (1/16));
+        padding-left: @grid-space;
+      }
+      &.first {
+        margin-left: 0;
+      }
+    }
+  }
+
+  a.active-trail {
+    color: @col-background;
+    margin-bottom: -14px;
+    padding-bottom: 14px;
+    background: transparent url(../images/sprite-icons.png) 50% 100% no-repeat;
+  }
+}
+
+.search-region .menu,
+.footer-region .menu,
+ul.tabs {
+  .text-footer;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+// Vertical Menus
+.vertical-menu {
+  border-bottom: 1px solid @col-midgrey;
+  margin-bottom: 70px;
+
+  li {
+    border-top: 1px solid @col-midgrey;
+  }
+  li:first-child {
+  }
+  a {
+    display: block;
+    line-height: 18px;
+    padding: 6px @grid-space;
+
+    & + .vertical-menu {
+      margin-bottom: 0;
+      border: none;
+
+      a {
+        padding-left: 2 * @grid-space;
+      }
+
+      .vertical-menu {
+        a {
+          padding-left: 3 * @grid-space;
+        }
+      }
+    }
+    &.active {
+      background: @col-grey;
+    }
+
+  }
+}
+
+// Pager
+// ---------------------
+.pager {
+  .text-secondary;
+  text-align: center;
+  margin-top: 35px;
+
+  li {
+    display: inline-block;
+    padding: 0 6px;
+    background: transparent url(../images/sprite-menu.png) 100% 7px no-repeat;
+  }
+  .last {
+    background: none;
+  }
+}
+
+// Elements
+// ---------------------
+.tag-link {
+  #font > .shorthand(12px, normal, 1.3em);
+  display: inline-block;
+  height: 19px;
+  line-height: 19px;
+  padding: 0 6px 0 20px;
+  background: transparent url(../images/back-tag.png) left center no-repeat;
+  margin: 0 4px 6px 0;
+  color: @col-secondary;
+
+  &:link,
+  &:visited {
+    color: @col-secondary;
+  }
+
+  &:hover,
+  &:active {
+    background: transparent url(../images/back-tag-hover.png) left center no-repeat;
+    color: @col-base;
+    text-decoration: none;
+  }
+}
+
+.tag-selected {
+  background: transparent url(../images/back-tag-selected.png) left center no-repeat;
+  color: @col-background;
+
+  &:link,
+  &:visited {
+    color: @col-background;
+  }
+
+  &:hover,
+  &:active {
+    background: transparent url(../images/back-tag-selected-hover.png) left center no-repeat;
+    color: @col-base;
+  }
+}
+
+.label-theme {
+  #font > .shorthand(13px, bold, 1em);
+  background: @col-diesel;
+  color: @col-background;
+  text-transform: uppercase;
+}
+
+p.text-teaser {
+  margin-bottom: 4px;
+}
+
+.region-footer {
+  .text-footer;
+}
+
+.modal-trigger-link.title-subscribe {
+  #font > .shorthand(12px, normal, 1em);
+  color: @col-diesel;
+  text-transform: uppercase;
+  text-align: right;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.block-filter {
+  .modal-trigger-link {
+    clear: both;
+    &.title-list { margin-bottom: 0; }
+  }
+}
+
+.block-modal {
+  label {
+    #font > .shorthand(13px, bold, 1em);
+    float: none;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .form-text {
+    float: none;
+    max-width: none;
+  }
+}
+
+.icon-subscribe {
+  background: url('../images/sprite-icons.png') no-repeat -375px -229px;
+  width: 20px;
+  height: 25px;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+// Forms
+// ------------------------
+
+.form-managed-file .form-file, .form-managed-file .form-submit {
+margin: 0 0 10px 32px;
+height: 25px;
+float: left;
+}
+
+
+.webform-client-form {
+  #font > .shorthand(13px, normal, 1.3em);
+}
+
+.input,
+input {
+  #font > #family .sans-serif();
+}
+
+.inputfield {
+  border: 1px solid @col-midgrey;
+  padding: 2px 4px 1px;
+  margin: 0 0 @grid-space/2;
+  width: 100%;
+}
+
+input[type=text],
+input[type=number],
+input[type=email],
+select {
+  #font > .shorthand(13px, normal, 1.3em);
+  .input;
+  .inputfield;
+  max-width: 235px;
+}
+
+textarea {
+  .input;
+  .inputfield;
+  clear: left;
+}
+
+// Labels
+form label {
+  float: left;
+  width: 91px;
+  padding-right: @grid-space;
+}
+
+#webform-component-jeg-vil-gerne-laese-mere-om label  {
+  float: left;
+  width: 433px;
+  padding-right: @grid-space;
+}
+
+
+
+.webform-container-inline {
+  .form-item {
+    label {
+      float: none;
+      width: auto;
+    }
+  }
+}
+
+.webform-component-textarea,
+.webform-component-radios,
+.webform-component-checkboxes {
+  margin-bottom: @baseline;
+  & > label {
+    float: none;
+    display: block;
+    width: 100%;
+    #font > .shorthand(14px, normal, 20px);
+    margin-top: @baseline;
+  }
+}
+
+
+.form-item,
+.form-wrapper {
+  clear: left;
+
+  h2 {
+    #font > .shorthand(18px, normal, 20px);
+    margin-top: @baseline;
+    padding: @baseline 0;
+    border-top: 1px dotted @col-darkgrey;
+  }
+}
+
+.webform-component-number,
+.webform-component-textfield {
+  .description {
+    margin-left: 90px;
+  }
+}
+
+.webform-component-fieldset {
+  padding: 1.5 * @baseline 0 @baseline;
+  border: dotted @col-darkgrey;
+  border-width: 1px 0;
+  margin: @baseline 0;
+  background: @col-lightgrey;
+}
+
+fieldset {
+  position: relative;
+}
+
+legend {
+  position: absolute;
+  top: 4px;
+  left: 0;
+}
+
+
+.form-actions {
+  margin-top: @baseline;
+  padding: @baseline 0;
+  border-top: 1px dotted @col-darkgrey;
+}
+
+input[type=submit],
+.button {
+  text-transform: uppercase;
+  .text-footer;
+  background-color: @col-darkgrey;
+  border: none;
+  color: @col-background;
+  padding: @grid-space/2 @grid-space * 1.5;
+  float: right;
+  margin: @baseline 0 @baseline @baseline/2;
+}
+
+.text-link,
+input.text-link {
+  .text-footer;
+  float: left;
+  background: transparent;
+  text-transform: none;
+  color: @col-diesel;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.align-right {
+    float: right;
+  }
+}
+
+.search-region,
+.m-secondary {
+  input[type=text],
+  label {
+    .text-footer;
+  }
+}
+
+.webform-component-webform_grid {
+  label {
+    float: none;
+  }
+}
+
+.inline-field {
+  clear: none;
+  float: left;
+}
+
+.end-icon {
+  position: relative;
+  left: -20px;
+  top: 5px;
+}
+
+// Compact forms.
+.compact-form {
+  .form-wrapper,
+  .form-item {
+    position: relative;
+  }
+}
+
+.compact-form-label {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+// Search
+.search-submit {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+
+#freetext-search-block-form {
+  .form-item {
+    clear: none;
+  }
+  .form-text {
+    padding: 3px 22px 3px 8px;
+    font-size: 14px;
+    width: 300px;
+    max-width: none;
+  }
+  .compact-form-label {
+    top: 4px;
+    left: 8px;
+    .text-footer;
+    font-size: 14px;
+  }
+  select {
+    height: 26px;
+  }
+}
+
+
+.block-facet {
+  .facetapi-facetapi-links,
+  form {
+    .text-secondary;
+  }
+  h2 {
+    margin-bottom: @baseline;
+  }
+}
+
+// Secondary content
+.m-secondary {
+  form {
+    margin-right: 2 * @grid-space;
+  }
+}
+
+// Messages
+.messages {
+  .text-footer;
+  color: @col-base;
+}
+
+
+// DEV
+.pane-tags-panel-pane-1 {
+  .text-secondary;
+}
+
+// 1 column layout.
+// Mobile.
+@media only screen
+and (max-width : 492px) {
+  .title-tile-large {
+    .title-tile;
+  }
+  .menu-region {
+    a:link,
+    a:visited {
+      color: @col-diesel;
+      font-size: 17px;
+      line-height: 30px;
+    }
+  }
+}

@@ -1,0 +1,157 @@
+.grid-1 {
+  width: 14.6875em;
+  margin-right: 0.5em;
+  float: left;
+}
+.grid-2 {
+  width: 29.875em;
+  margin-right: 0.5em;
+  float: left;
+}
+.grid-3 {
+  width: 45.0625em;
+  margin-right: 0.5em;
+  float: left;
+}
+.grid-4 {
+  width: 60.25em;
+  margin-right: 0.5em;
+  float: left;
+}
+.grid .grid:last-child {
+  margin-right: 0;
+}
+.grid .grid.last {
+  margin-right: 0;
+}
+.grid-15 {
+  margin-right: 0.5em;
+  float: left;
+}
+.push-1 {
+  margin-left: 15.1875em;
+}
+.vgrid-1,
+.hgrid-1 {
+  height: 175px;
+  margin-bottom: 8px;
+}
+.vgrid-2,
+.hgrid-2 {
+  height: 358px;
+  margin-bottom: 8px;
+}
+.wrapper {
+  -moz-transition: width 0.7s ease-in-out 0.1s;
+  -o-transition: width 0.7s ease-in-out 0.1s;
+  -ms-transition: width 0.7s ease-in-out 0.1s;
+  -webkit-transition: width 0.7s ease-in-out 0.1s;
+  transition: width 0.7s ease-in-out 0.1s;
+  padding-bottom: 6px;
+  clear: both;
+  position: relative;
+}
+.node-type-campaign .grid-2.grid.content-column {
+  width: 45.0625em; /* grid 3 width */
+}
+@media only screen and (min-width: 62em) {
+  .wrapper {
+    width: 61em;
+    margin: 0 auto;
+  }
+  .masonry-front {
+    width: 29.875em;
+    margin-right: 0.5em;
+    float: left;
+  }
+  .cell-2-1 {
+    width: 29.875em;
+    margin-right: 0.5em;
+    float: left;
+  }
+  .grid-15 {
+    width: 22.28125em;
+    padding-right: 56px;
+  }
+}
+@media only screen and (min-width: 46em) and (max-width: 62em) {
+  .wrapper {
+    width: 45.75em;
+    margin: 0 auto;
+  }
+  .cell-2-1 {
+    width: 14.6875em;
+    margin-right: 0.5em;
+    float: left;
+  }
+  .cell-2-1 .ui-tabs {
+    height: 358px;
+    margin-bottom: 8px;
+  }
+  .grid-15 {
+    width: 14.6875em;
+    margin-right: 0.5em;
+    float: left;
+  }
+}
+@media only screen and (min-width: 30.75em) and (max-width: 46em) {
+  .wrapper {
+    width: 30.5em;
+    margin: 0 auto;
+  }
+  .masonry-front,
+  .grid-3,
+  .grid-4 {
+    width: 29.875em;
+    margin-right: 0.5em;
+    float: left;
+  }
+  .grid-15 {
+    width: 14.6875em;
+    margin-right: 0.5em;
+    float: left;
+  }
+}
+@media only screen and (max-width: 30.75em) {
+  .wrapper {
+    width: 15.25em;
+    margin: 0 auto;
+  }
+  .grid-2,
+  .grid-3,
+  .grid-4 .grid-15,
+  .cell-2-1 {
+    width: 14.6875em;
+    margin-right: 0.5em;
+    float: left;
+  }
+  .tile.vgrid-2 {
+    height: 175px;
+    margin-bottom: 8px;
+  }
+}
+.no-mq .wrapper,
+.lt-ie8 .wrapper {
+  width: 61em;
+  margin: 0 auto;
+}
+.no-mq .masonry-front,
+.lt-ie8 .masonry-front {
+  width: 29.875em;
+  margin-right: 0.5em;
+  float: left;
+}
+.no-mq .cell-2-1,
+.lt-ie8 .cell-2-1 {
+  width: 29.875em;
+  margin-right: 0.5em;
+  float: left;
+}
+.no-mq .grid-15,
+.lt-ie8 .grid-15 {
+  width: 22.28125em;
+  padding-right: 56px;
+}
+.lt-ie8 .page-frontpage .masonry-front + .masonry-front {
+  padding-bottom: 1px;
+}

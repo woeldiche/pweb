@@ -1,0 +1,62 @@
+; ----- / BASIC INFO / -----
+
+name = Personaleweb
+description = Custom, responsive theme for personaleweb.dk.
+core = '7.x'
+engine = phptemplate
+screenshot = 'screenshot.png'
+version = '7.x-2.0-dev'
+base theme = mothership
+
+
+; ---- / REQUIRED REGIONS / -----
+
+regions[page_top] = "Page Top"
+regions[page_bottom] = "Page Bottom"
+regions[content] = "Content"
+
+
+; ----- / CUSTOM REGIONS / -----
+
+regions[branding] = Branding area
+regions[search] = Search
+regions[menu] = Menu
+regions[filterbar] = Below menu
+regions[postscript_first] = Postscript First
+regions[postscript_second] = Postscript Second
+regions[postscript_third] = Postscript Third
+regions[footer] = Footer
+regions[highlighted] = Highlighted
+
+; Branding area outputs logos in right sidebar.
+; Highlighted outputs content inside drupal_messages.
+; Filterbar is an optional region for outputting the section/tag page filters.
+
+
+; ----- / CSS / -----
+
+stylesheets[all][]   = css/pweb.base.css
+stylesheets[all][]   = css/pweb.grid.css
+stylesheets[all][]   = css/pweb.typography.css
+stylesheets[all][]   = css/pweb.styles.css
+stylesheets[print][] = css/pweb.print.css
+stylesheets[all][]   = css/pweb.developer.css
+
+
+; ----- / DISABLE CSS / -----
+stylesheets[all][]   = remove/jquery.ui.tabs.css
+
+
+; ----- / SCRIPTS / -----
+; @todo: Exchange modernizer dev for a minified production build.
+;scripts[] = js/html5shiv.js
+scripts[] = js/libs/modernizr.custom.10471.js
+scripts[] = js/pweb.common.js
+
+
+; ----- / PANELS / -----
+
+plugins[panels][layouts] = plugins/panels
+
+
+; ----- / DEFAULT SETTINGS / -----
