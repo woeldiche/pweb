@@ -244,6 +244,7 @@
     if (!Modernizr.mq('only all')) {
       $('html').addClass('no-mq');
     }
+
     // Use Modernizr to conditionally load and call function on load.
     Modernizr.load([
       {
