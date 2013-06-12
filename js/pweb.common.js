@@ -1,5 +1,5 @@
 (function ($) {
-"use strict";
+'use strict';
 
   /**
    * Collapse main menu
@@ -20,17 +20,17 @@
       if ($elWrapper.find('.toggle').length === 0 && toggle) {
 
         // Add a link to show/hide target menu.
-        $toggle = $("<a />", {
-          "href"   : "#",
-          "text"   : toggle,
-          "class"  : "toggle collapsible"
+        $toggle = $('<a />', {
+          'href'   : '#',
+          'text'   : toggle,
+          'class'  : 'toggle collapsible'
           })
           .prependTo($elWrapper);
 
         // Add an event to show/hide menu when our link is clicked.
-        $elWrapper.delegate(".toggle", "click", function (event) {
+        $elWrapper.delegate('.toggle', 'click', function (event) {
           $toggle.toggleClass('collapsed');
-          $elWrapper.find(".menu").slideToggle();
+          $elWrapper.find('.menu').slideToggle();
 
           // Prevent default action.
           event.preventDefault();
@@ -38,15 +38,15 @@
 
         // Collapse menu immediately.
         if (collapsed) {
-          $elWrapper.find(".menu").hide();
+          $elWrapper.find('.menu').hide();
           $toggle.addClass('collapsed');
         }
       }
       // If collapsed is set to false, remove collabsibility instead.
       if (collapsed === false && $elWrapper.find('.toggle').length > 0) {
-        $elWrapper.find(".menu").show();
+        $elWrapper.find('.menu').show();
         $elWrapper.find('.toggle').detach();
-        $elWrapper.undelegate(".toggle", "click");
+        $elWrapper.undelegate('.toggle', 'click');
       }
     }
 
@@ -66,14 +66,16 @@
   var adaptContent = (function() {
 
     function initialize () {
+      /* global enquire: true */
+
       // Register enguire
-      enquire.register("screen and (max-width: 30.75em)", {
+      enquire.register('screen and (max-width: 30.75em)', {
 
         // REQUIRED
         // Triggered when the media query transitions
         // from *unmatched* to *matched*
         match : function() {
-          collapsibleElement.collapse(".menu-region", true, 'Menu');
+          collapsibleElement.collapse('.menu-region', true, 'Menu');
           tabToAccordion('.ui-tabs', '.ui-tabs-nav', '.ui-tabs-panel');
         },
 
@@ -81,7 +83,7 @@
         // Triggered when the media query transitions
         // from a *matched* to *unmatched*
         unmatch : function() {
-          collapsibleElement.collapse(".menu-region", false);
+          collapsibleElement.collapse('.menu-region', false);
           accordionToTab('.ui-tabs');
         },
 
@@ -95,17 +97,17 @@
         // until the first media query is matched (still just once)
         deferSetup : true
       })
-      .register("screen and (max-width: 46em)", {
+      .register('screen and (max-width: 46em)', {
         match : function() {
-          moveContent(".block-system-user-menu .menu", ".block-menu-menu-footer-menu", "vagrant-menu");
+          moveContent('.block-system-user-menu .menu', '.block-menu-menu-footer-menu', 'vagrant-menu');
         },
         unmatch : function() {
-          moveContent(".vagrant-menu", ".block-system-user-menu");
+          moveContent('.vagrant-menu', '.block-system-user-menu');
         },
         setup : function() {},
         deferSetup : true
       })
-      .register("screen and (min-width : 46em) and (max-width : 62em)" , {
+      .register('screen and (min-width : 46em) and (max-width : 62em)' , {
         match : function() {
           tabToAccordion('.ui-tabs', '.ui-tabs-nav', '.ui-tabs-panel');
         },
@@ -115,12 +117,12 @@
         setup : function() {},
         deferSetup : true
       })
-      .register("screen and (min-width : 86em)", {
+      .register('screen and (min-width : 86em)', {
         match : function() {
-          moveContent(".list-logos", ".page-top");
+          moveContent('.list-logos', '.page-top');
         },
         unmatch : function() {
-          moveContent(".list-logos", ".footer-region");
+          moveContent('.list-logos', '.footer-region');
         },
         setup : function() {},
         deferSetup : true
@@ -149,7 +151,7 @@
       // Run through $tabs array.
       $tabs.each(function () {
           // Grab id from tab content.
-          var id = $(this).attr("id");
+          var id = $(this).attr('id');
           // Find matching tab control.
           var $target = $('[href="#' + id + '"]');
           $target.addClass('vacc-control');
@@ -189,12 +191,9 @@
   * Uses Bootstrap modal library.
   */
   var modalEffect = (function() {
-    function addModalEffect (target) {
+    function addModalEffect () {
       var $modal = $('.block-modal');
       var $trigger = $modal.find('.modal-trigger');
-      var $modal_content = $modal.find('.pane-content');
-
-
 
       $trigger
         // Make a copy of the title to show inside the modal.
@@ -202,7 +201,7 @@
         // Remove class used to trigger modal.
         .addClass('modal-trigger-link')
         // Add icon wrapper
-        .append($("<span />", {"class" : "icon-subscribe"}))
+        .append($('<span />', {'class' : 'icon-subscribe'}))
         // Add class to modal content.
         .insertBefore($modal);
 
@@ -213,7 +212,7 @@
       var $content = $(this).siblings().filter('.block-modal');
       $content.modal({
         opacity:40,
-        overlayCss: {backgroundColor:"#000"},
+        overlayCss: {backgroundColor:'#000'},
         closeClass: 'icon-close'
       });
     }
@@ -236,8 +235,6 @@
       vids: fitVideo
     };
   }());
-  
-  
 
   /**
    * Run functions on document ready.
@@ -252,21 +249,21 @@
       {
         // Test for mediaMatch support and load polyfill if needed.
         test: window.matchMedia,
-        nope: "/sites/all/themes/personaleweb/js/libs/matchMedia.js"
+        nope: '/sites/all/themes/personaleweb/js/libs/matchMedia.js'
       },
       {
         // Load enguire.js
-        load: "/sites/all/themes/personaleweb/js/libs/enquire.js",
+        load: '/sites/all/themes/personaleweb/js/libs/enquire.js',
         callback : adaptContent.init
       },
       {
         // Load simplemodal.js
-        load: "/sites/all/themes/personaleweb/js/libs/jquery.simplemodal.1.4.3.min.js",
+        load: '/sites/all/themes/personaleweb/js/libs/jquery.simplemodal.1.4.3.min.js',
         callback : modalEffect.init
       },
       {
         // Load fitvids.js
-        load: "/sites/all/themes/personaleweb/js/libs/jquery.fitvids.js",
+        load: '/sites/all/themes/personaleweb/js/libs/jquery.fitvids.js',
         callback : responsiveMagic.vids
       }
     ]);
@@ -275,14 +272,11 @@
   Drupal.behaviors.pwb_print_link = {
     attach: function (context, settings) {
       $('a.print-page').attr('href', '#').click(function(event){
-    	event.preventDefault();
+      event.preventDefault();
 
-    	window.print();
+      window.print();
       });
     }
   };
 
-  
-
-  
   })(jQuery);
