@@ -191,6 +191,15 @@
   * Uses Bootstrap modal library.
   */
   var modalEffect = (function() {
+    function open (element) {
+      var $content = $(element).siblings().filter('.block-modal');
+      $content.modal({
+        opacity:40,
+        overlayCss: {backgroundColor:'#000'},
+        closeClass: 'icon-close'
+      });
+    }
+
     function addModalEffect () {
       var $modal = $('.block-modal');
       var $trigger = $modal.find('.modal-trigger');
@@ -205,15 +214,8 @@
         // Add class to modal content.
         .insertBefore($modal);
 
-      $(document).delegate('.modal-trigger-link', 'click', open);
-    }
-
-    function open () {
-      var $content = $(this).siblings().filter('.block-modal');
-      $content.modal({
-        opacity:40,
-        overlayCss: {backgroundColor:'#000'},
-        closeClass: 'icon-close'
+      $(document).delegate('.modal-trigger-link', 'click', function() {
+        open(this);
       });
     }
 
@@ -271,7 +273,7 @@
   });
 
   Drupal.behaviors.pwb_print_link = {
-    attach: function (context, settings) {
+    attach: function () {
       $('a.print-page').attr('href', '#').click(function(event){
       event.preventDefault();
 
